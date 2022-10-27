@@ -4,9 +4,10 @@ from selenium.webdriver.common.by import By
 
 
 @dataclass
-class MainPageLocators:
+class BasePageLocators:
     login_link_xpath = (By.XPATH, '//a[@id="login_link"]')
     login_link_css = (By.CSS_SELECTOR, '#loginn_link')
+    login_link_invalid = (By.CSS_SELECTOR, "#login_link_inc")
 
 
 @dataclass
@@ -34,3 +35,10 @@ class RegisterFormPageLocators:
     btn_register = (By.XPATH, f'{_register_form_locator}//button[@name="registration_submit"]')
 
 
+@dataclass
+class ProductPageLocators:
+    title = (By.XPATH, '//h1')
+    price = (By.XPATH, '//p[@class="price_color"]')
+    btn_add_to_basket = (By.XPATH, '//form[@id="add_to_basket_form"]/button[@type="submit"]')
+    added_product_alert = (By.XPATH, '//div[@id="messages"]/div[1]//strong')
+    basket_total_price_alert = (By.XPATH, '//div[@id="messages"]/div[3]//strong')
